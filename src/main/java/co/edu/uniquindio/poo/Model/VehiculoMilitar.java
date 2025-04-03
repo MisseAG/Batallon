@@ -1,12 +1,12 @@
 package co.edu.uniquindio.poo.Model;
 
 public abstract class VehiculoMilitar {
-    public String id;
-    public String modelo;
-    public int anioFabricacion;
-    public int kilometraje;
-    public int cantidadMisiones;
-    public EstadoOperativo estadoOperativo;
+    private String id;
+    private String modelo;
+    private int anioFabricacion;
+    private int kilometraje;
+    private int cantidadMisiones;
+    private EstadoOperativo estadoOperativo;
 
     public VehiculoMilitar(String id, String modelo, int anioFabricacion, int kilometraje, int cantidadMisiones,
             EstadoOperativo estadoOperativo) {
