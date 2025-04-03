@@ -13,7 +13,7 @@ public class TransporteTropas extends VehiculoMilitar{
 
 
 
-
+    //Polimorfismo
     @Override
     public String mostrarInformacion() {
         StringBuilder info = new StringBuilder();

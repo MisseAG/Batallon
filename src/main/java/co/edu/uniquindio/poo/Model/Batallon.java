@@ -55,7 +55,7 @@ public class Batallon {
         }
         return resultado.toString();
     }
-    
+    //Metodo sobrecarga
     public boolean asignarMision(Mision mision) {
         for (Mision mAux : listaMisiones) {
             if (mAux.equals(mision)) {

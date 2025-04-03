@@ -9,6 +9,7 @@ public class Apoyo extends VehiculoMilitar{
         this.tipoFuncion = tipoFuncion;
     }
 
+    //polimorfismo
     @Override
     public String mostrarInformacion() {
         StringBuilder info = new StringBuilder();

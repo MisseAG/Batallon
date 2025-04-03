@@ -14,7 +14,7 @@ public class Blindado extends VehiculoMilitar {
 
 
 
-
+    //polimorfismo
     @Override
     public String mostrarInformacion() {
         StringBuilder info = new StringBuilder();

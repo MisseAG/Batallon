@@ -17,7 +17,7 @@ public abstract class VehiculoMilitar {
         this.cantidadMisiones = cantidadMisiones;
         this.estadoOperativo = estadoOperativo;
     }
-
+    //Metodo abstracto
     public abstract String mostrarInformacion();
 
     public void actualizarInformacion(String nuevoModelo, int nuevoAnio, int nuevoKilometraje, EstadoOperativo nuevoEstado) {
