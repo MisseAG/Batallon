@@ -1,11 +1,13 @@
 package co.edu.uniquindio.poo.Model;
 
+import java.util.ArrayList;
+
 public class Apoyo extends VehiculoMilitar{
     public TipoFuncion tipoFuncion;
     
     public Apoyo(String id, String modelo, int anioFabricacion, int kilometraje, int cantidadMisiones,
-            EstadoOperativo estadoOperativo, TipoFuncion tipoFuncion) {
-        super(id, modelo, anioFabricacion, kilometraje, cantidadMisiones, estadoOperativo);
+            EstadoOperativo estadoOperativo, ArrayList<Mision> listaMisiones, TipoFuncion tipoFuncion) {
+        super(id, modelo, anioFabricacion, kilometraje, cantidadMisiones, estadoOperativo, listaMisiones);
         this.tipoFuncion = tipoFuncion;
     }
 

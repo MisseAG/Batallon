@@ -1,14 +1,16 @@
 package co.edu.uniquindio.poo.Model;
 
+import java.util.ArrayList;
+
 public class Blindado extends VehiculoMilitar {
-    @SuppressWarnings("unused")
+    
     private int nivelBlindaje;
     
     
 
     public Blindado(String id, String modelo, int anioFabricacion, int kilometraje, int cantidadMisiones,
-            EstadoOperativo estadoOperativo, int nivelBlindaje) {
-        super(id, modelo, anioFabricacion, kilometraje, cantidadMisiones, estadoOperativo);
+            EstadoOperativo estadoOperativo, ArrayList<Mision> listaMisiones, int nivelBlindaje) {
+        super(id, modelo, anioFabricacion, kilometraje, cantidadMisiones, estadoOperativo, listaMisiones);
         this.nivelBlindaje = nivelBlindaje;
     }
 

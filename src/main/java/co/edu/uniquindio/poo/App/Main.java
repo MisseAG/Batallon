@@ -17,9 +17,9 @@ public class Main {
         Batallon batallon = new Batallon("0001", "Batallón");
 
         // Crear vehículos
-        TransporteTropas vehiculo1 = new TransporteTropas("0001", "Ol", 1990, 30000, 58, EstadoOperativo.DISPONIBLE, 20);
-        Apoyo vehiculo2 = new Apoyo("0002", "Auxiliar", 2005, 5000, 67, EstadoOperativo.EN_MISION, TipoFuncion.COMUNICACIONES);
-        Blindado vehiculo3 = new Blindado("0003", "Bunker", 2010, 7000, 15, EstadoOperativo.EN_MANTENIMIENTO, 5);
+        TransporteTropas vehiculo1 = new TransporteTropas("0001", "Ol", 1990, 30000, 58, EstadoOperativo.DISPONIBLE, null, 20);
+        Apoyo vehiculo2 = new Apoyo("0002", "Auxiliar", 2005, 5000, 67, EstadoOperativo.EN_MISION, null, TipoFuncion.COMUNICACIONES);
+        Blindado vehiculo3 = new Blindado("0003", "Bunker", 2010, 7000, 15, EstadoOperativo.EN_MANTENIMIENTO, null, 5);
         
         // Registrar vehículos
         batallon.registrarVehiculo(vehiculo1);

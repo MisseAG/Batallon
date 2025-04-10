@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
 
 public class Batallon {
@@ -23,7 +24,7 @@ public class Batallon {
     }
 
 
-   public boolean registrarVehiculo(VehiculoMilitar vehiculo) {
+    public boolean registrarVehiculo(VehiculoMilitar vehiculo) {
         for (VehiculoMilitar vAux : listaVehiculos) {
             if (vAux.equals(vehiculo)) {
                 return false; 
@@ -33,23 +34,23 @@ public class Batallon {
         return true;
     }
 //Métodos 3/04/25
-    public String registrarVehiculo2(Vehiculo nuevoVehiculo) {
+    public String registrarVehiculo2(VehiculoMilitar nuevoVehiculo) {
 
         String mensaje = "";
-        Vehiculo vehiculoEncontrado = null;
+        VehiculoMilitar vehiculoEncontrado = null;
         vehiculoEncontrado = buscarVehiculo(nuevoVehiculo.getId());
         if (vehiculoEncontrado == null) {
             listaVehiculos.add(nuevoVehiculo);
                 mensaje = "Vehiculo registrado correctamente";
         }
-        mensaje = "Vehiculo no encontrado":
+        mensaje = "Vehiculo no encontrado";
 
         return mensaje;
     }
-    public String registrarVehiculo3(Vehiculo nuevoVehiculo) {
+    public String registrarVehiculo3(VehiculoMilitar nuevoVehiculo) {
 
         String mensaje = "";
-        Optional<Vehiculo> optionalVehiculo = null buscarVehiculo2(nuevoVehiculo.getId());
+        Optional<VehiculoMilitar> optionalVehiculo = buscarVehiculo2(nuevoVehiculo.getId());
 
         if(optionalVehiculo.isPresent()){
             mensaje = "ya existe";
@@ -60,9 +61,9 @@ public class Batallon {
         return mensaje;
     }
     
-    private Vehiculo buscarVehiculo(String id) {
-        Vehiculo vehiculoEncontrado = null;
-        for (Vehiculo vehiculoAux : listaVehiculos) {
+    private VehiculoMilitar buscarVehiculo(String id) {
+        VehiculoMilitar vehiculoEncontrado = null;
+        for (VehiculoMilitar vehiculoAux : listaVehiculos) {
             if (vehiculoAux.getId().equals(id)) {
                 vehiculoEncontrado = vehiculoAux;
                 return vehiculoEncontrado; //rompe el ciclo
@@ -71,24 +72,33 @@ public class Batallon {
         return  vehiculoEncontrado;
     }
 
-    private Optional<Vehiculo> buscarVehiculo2(String id) {
+    private Optional<VehiculoMilitar> buscarVehiculo2(String id) {
         return listaVehiculos.stream()
-                          .filter(v -> vehiculo.getId().equals(id))//condicion filtro
-                          .findFirst() // devuelve primero  
-                          ;  
+                        .filter(v -> v.getId().equals(id))//condicion filtro
+                        .findFirst() // devuelve primero  
+                        ;  
     }
 
-    public String editarVehiculo(String id, Vehiculo vehiculo){
-        String mensaje= "";
-        Vehiculo vehiculoEncontrado = null;
+    public String editarVehiculo(String id, VehiculoMilitar vehiculo){
+        if (id == null || vehiculo == null) {
+            return "Error: El ID o el vehículo no pueden ser nulos";
+        }
+    
+        for (int i = 0; i < listaVehiculos.size(); i++) {
+            if (id.equals(listaVehiculos.get(i).getId())) {
 
-        return mensaje;
+                listaVehiculos.set(i, vehiculo);
+                return "Vehículo militar con ID " + id + " actualizado correctamente";
+            }
+        }
+        
+        return "Error: No se encontró un vehículo militar con ID " + id;
     }
 
-    public Vehiculo obtenerVehiculoMayorMisiones(){
-        Vehiculo vehiculoMayorMisiones = null:
+    public VehiculoMilitar obtenerVehiculoMayorMisiones(){
+        VehiculoMilitar vehiculoMayorMisiones = null;
         int mayor = -1;
-        for(Vehiculo v : listaVehiculos){
+        for(VehiculoMilitar v : listaVehiculos){
             if(v.getCantidadMisiones() > mayor){
                 mayor = v.getCantidadMisiones();
                 vehiculoMayorMisiones = v;
@@ -97,7 +107,7 @@ public class Batallon {
         return vehiculoMayorMisiones;
     }//optimizar
 
-     
+
     //
     public boolean actualizarVehiculo(VehiculoMilitar vehiculoActualizar, String nuevoModelo, int nuevoAnio, int nuevoKilometraje, EstadoOperativo nuevoEstado) {
         for (VehiculoMilitar vAux : listaVehiculos){
