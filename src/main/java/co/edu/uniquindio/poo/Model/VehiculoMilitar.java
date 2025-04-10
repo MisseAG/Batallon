@@ -1,12 +1,13 @@
 package co.edu.uniquindio.poo.Model;
 
 public abstract class VehiculoMilitar {
-    public String id;
-    public String modelo;
-    public int anioFabricacion;
-    public int kilometraje;
-    public int cantidadMisiones;
-    public EstadoOperativo estadoOperativo;
+    private String id;
+    private String modelo;
+    private int anioFabricacion;
+    private int kilometraje;
+    private int cantidadMisiones;
+    private EstadoOperativo estadoOperativo;
+    private arrayList<Mision> listaMisiones;
 
     public VehiculoMilitar(String id, String modelo, int anioFabricacion, int kilometraje, int cantidadMisiones,
             EstadoOperativo estadoOperativo) {
@@ -16,6 +17,7 @@ public abstract class VehiculoMilitar {
         this.kilometraje = kilometraje;
         this.cantidadMisiones = cantidadMisiones;
         this.estadoOperativo = estadoOperativo;
+        this.listaMisiones = new arrayList<>();
     }
     //Metodo abstracto
     public abstract String mostrarInformacion();
@@ -25,5 +27,9 @@ public abstract class VehiculoMilitar {
         this.anioFabricacion = nuevoAnio;
         this.kilometraje = nuevoKilometraje;
         this.estadoOperativo = nuevoEstado;
+    }
+
+    public void registrarMision(Mision mision){
+        
     }
 }
