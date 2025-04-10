@@ -7,6 +7,7 @@ public abstract class VehiculoMilitar {
     private int kilometraje;
     private int cantidadMisiones;
     private EstadoOperativo estadoOperativo;
+    private arrayList<Mision> listaMisiones;
 
     public VehiculoMilitar(String id, String modelo, int anioFabricacion, int kilometraje, int cantidadMisiones,
             EstadoOperativo estadoOperativo) {
@@ -16,6 +17,7 @@ public abstract class VehiculoMilitar {
         this.kilometraje = kilometraje;
         this.cantidadMisiones = cantidadMisiones;
         this.estadoOperativo = estadoOperativo;
+        this.listaMisiones = new arrayList<>();
     }
 
     public abstract String mostrarInformacion();
@@ -25,5 +27,9 @@ public abstract class VehiculoMilitar {
         this.anioFabricacion = nuevoAnio;
         this.kilometraje = nuevoKilometraje;
         this.estadoOperativo = nuevoEstado;
+    }
+
+    public void registrarMision(Mision mision){
+        
     }
 }
